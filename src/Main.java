@@ -1,6 +1,7 @@
 
 import graph.Graph;
-import graph.TopoSort;
+import graph.SCC;
+
 import java.util.Scanner;
 
 
@@ -18,8 +19,8 @@ public class Main {
             G.connect(a, b, false);
         }
         
-        TopoSort T = new TopoSort(G);
-        T.countType();
-        T.printArray();
+        SCC scc = new SCC(G);
+        scc.printComponents();
+        
     }
 }

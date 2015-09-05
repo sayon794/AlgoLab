@@ -33,11 +33,16 @@ public class Graph {
     public Graph transpose() {
     	Graph Gt = new Graph(this.nodes);
     	for(int i=1;i<=nodes;i++) {
-    		for(int j=i;j<=nodes;j++) {
+    		for(int j=1;j<=nodes;j++) {
     			if(this.isConnected(i,j))
     				Gt.connect(j,i,false);
     		}
     	}
+    	/*for(int i=1;i<=nodes;i++) {
+    		for(int j=1;j<=nodes;j++)
+    			System.out.print((Gt.isConnected(i, j)?1:0));
+    		System.out.println();
+    	}*/
     	return Gt;
     }
     

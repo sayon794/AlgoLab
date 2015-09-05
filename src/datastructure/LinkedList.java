@@ -26,6 +26,24 @@ public class LinkedList {
         tail.prev = temp;
     }
     
+    public void removeBack() {
+        if(this.empty()) {
+            return;
+        }
+        Link temp = tail.prev;
+        tail.prev = temp.prev;
+        temp.prev.next = tail;
+    }
+    
+    public void removeFront() {
+        if(this.empty()) {
+            return;
+        }
+        Link temp = head.next;
+        head.next = temp.next;
+        temp.next.prev = head;
+    }
+    
     public boolean empty() {
         return (head.next == tail);
     }
