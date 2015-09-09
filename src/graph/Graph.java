@@ -3,6 +3,7 @@ package graph;
 public class Graph {
     private boolean adjMat[][];
     private int nodes;
+	public int componentFlag[];
     
     public Graph(int nodes) {
         this.nodes = nodes;

@@ -2,25 +2,29 @@
 import graph.Graph;
 import graph.SCC;
 
-import java.util.Scanner;
-
 
 public class Main {
     public static void main(String args[]) {
-        int nodes,edges;
-        Scanner S = new Scanner(System.in);
-        nodes = S.nextInt();
-        edges = S.nextInt();
-        Graph G = new Graph(nodes);
-        int a,b;
-        for(int i=0;i<edges;i++) {
-            a = S.nextInt();
-            b = S.nextInt();
-            G.connect(a, b, false);
-        }
+        FileInput fin = new FileInput();
         
-        SCC scc = new SCC(G);
+        SCC scc = new SCC(fin.G);
         scc.printComponents();
+        
+        Graph Gcc1 = scc.componentConnectivity();
+        scc.setEdge(fin.n1, fin.n2);
+        Graph Gcc2 = scc.componentConnectivity();
+        boolean changed[] = new boolean[scc.CC+1];
+        
+        for(int i=1;i<=scc.CC;i++) 
+        	for(int j=1;j<=scc.CC;j++) 
+        		if(i!=j&&Gcc1.isConnected(i,j)!=Gcc2.isConnected(i,j))
+        			changed[i]=changed[j]=true;
+        
+        for(int i=1;i<=scc.CC;i++) 
+        	if(changed[i])
+        		System.out.println("Component "+i+" was affected");
+        
+        //scc.newEdge(fin.n1, fin.n2);
         
     }
 }
