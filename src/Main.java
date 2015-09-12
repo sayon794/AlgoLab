@@ -1,13 +1,14 @@
 
-import graph.Graph;
-import graph.SCC;
+import graph.ArtPoint;
 
 
 public class Main {
     public static void main(String args[]) {
         FileInput fin = new FileInput();
         
-        SCC scc = new SCC(fin.G);
+        ArtPoint AP = new ArtPoint(fin.G);
+        AP.printAP();
+        /*SCC scc = new SCC(fin.G);
         scc.printComponents();
         
         Graph Gcc1 = scc.componentConnectivity();
@@ -22,9 +23,7 @@ public class Main {
         
         for(int i=1;i<=scc.CC;i++) 
         	if(changed[i])
-        		System.out.println("Component "+i+" was affected");
-        
-        //scc.newEdge(fin.n1, fin.n2);
+        		System.out.println("Component "+i+" was affected");*/
         
     }
 }

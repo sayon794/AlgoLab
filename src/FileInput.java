@@ -23,9 +23,9 @@ public class FileInput {
         for(int i=0;i<edges;i++) {
             a = S.nextInt();
             b = S.nextInt();
-            G.connect(a, b, false);
+            G.connect(a, b, true);
         }
-        n1 = S.nextInt();
-        n2 = S.nextInt();
+        //n1 = S.nextInt();
+        //n2 = S.nextInt();
 	}
 }

@@ -4,12 +4,12 @@ import datastructure.LinkedList;
 
 
 public class DFS {
-    private Graph G;
-    private int nodes;
-    private boolean visited[];
-    private int discovery[], finishing[];
-    private int time=0;
-    private LinkedList list;
+    protected Graph G;
+    protected int nodes;
+    protected boolean visited[];
+    protected int discovery[], finishing[];
+    protected int time=0;
+    protected LinkedList list;
     
     public DFS(Graph g) {
         G = g;
@@ -31,12 +31,11 @@ public class DFS {
         }
     }
     
-    private void dfs(int node) {
+    protected void dfs(int node) {
         discovery[node] = ++time;
         visited[node] = true;
         for(int i=1;i<=nodes;i++) {
             if(G.isConnected(node, i) && node!=i &&!visited[i]) {
-                visited[i] = true;
                 dfs(i);
             }
         }
